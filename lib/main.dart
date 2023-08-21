@@ -35,37 +35,37 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title:Text("Bmi Calculator"),backgroundColor:Colors.red,),
+        appBar: AppBar(title:const Text("Bmi Calculator"),backgroundColor:Colors.red,),
         body:Center(
           child: Column(
             children: [
-              Text("Bmi Calculator", style:TextStyle(color: Colors.red, fontSize: 32),),
-              SizedBox(height: 8,),
-              Text("We Care About Your Health"),
-              SizedBox(height: 8,),
+              const Text("Bmi Calculator", style:TextStyle(color: Colors.red, fontSize: 32),),
+              const SizedBox(height: 8,),
+              const Text("We Care About Your Health"),
+              const SizedBox(height: 8,),
               Image.network("https://www.bajajfinservmarkets.in/content/dam/bajajfinserv/calculators/bmi/bmi-result-p.png"),
-              SizedBox(height: 8,),
-              Text("Height (${_heightsSliderValue.round()} cm)", style: TextStyle(fontSize: 20),),
-              Slider(value: _heightsSliderValue, min: 0,max: 100, onChanged: (double value){
+              const SizedBox(height: 12,),
+              Text("Height (${_heightsSliderValue.round()} cm)", style: const TextStyle(fontSize: 20),),
+              Slider(value: _heightsSliderValue, min: 100,max: 200, onChanged: (double value){
                 setState(() {
                   _heightsSliderValue = value;
                 });
               }),
-              SizedBox(height: 8,),
-              Text("Width (${_widthSliverValue.round()} kg)", style: TextStyle(fontSize: 20),),
-              Slider(value: _widthSliverValue, min: 0,max: 100, onChanged: (double value){
+              const SizedBox(height: 8,),
+              Text("Width (${_widthSliverValue.round()} kg)", style: const TextStyle(fontSize: 20),),
+              Slider(value: _widthSliverValue, min: 40,max: 150, onChanged: (double value){
                 setState(() {
                   _widthSliverValue = value;
                 });
               }),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               TextButton.icon(onPressed:(){
                 var tempBmi = _widthSliverValue/pow((_heightsSliderValue/100),2);
-              }, icon:Icon(Icons.favorite) , label:Text("Calculate") )
+                print("BMI ${tempBmi.round()}");
+              }, icon:const Icon(Icons.favorite) , label:const Text("Calculate") )
             ],
           ),
         )
     );
   }
 }
-
